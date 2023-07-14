@@ -4,12 +4,13 @@ metadata:
   name: rollouts-demo
   namespace: demo
 spec:
-  replicas: 5
+  replicas: 2
   strategy:
     blueGreen:
       autoPromotionEnabled: true
       activeService: demoapp
       previewService: canary-demo-preview
+      previewReplicaCount: 1
       postPromotionAnalysis:
         templates:
         - templateName: health-analysis
@@ -22,7 +23,7 @@ spec:
       labels:
         app.kubernetes.io/part-of: demoapp
         app.kubernetes.io/name: featuredemo
-        app.kubernetes.io/version: 1.0.0.slow1
+        app.kubernetes.io/version: 1.0.0.slow2
         app: demoapp
         keptn.sh/post-deployment-tasks: load-test
         keptn.sh/post-deployment-evaluations: demoapp-healty-check
@@ -60,6 +61,7 @@ spec:
   metrics:
   - name: success-rate
     interval: 10s
+    initialDelay: 1m
     count: 1
     successCondition: asFloat(result) < 0.3
     provider:

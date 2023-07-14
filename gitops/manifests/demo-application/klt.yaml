@@ -29,7 +29,7 @@ metadata:
 spec:
   provider:
     name: my-provider
-  query: 'avg(nginx_ingress_controller_ingress_upstream_latency_seconds_sum{exported_service="canary-demo-preview"}/nginx_ingress_controller_ingress_upstream_latency_seconds_count{exported_service="canary-demo-preview"})'
+  query: 'avg(http_server_duration_sum{http_route!="/healthz", http_method="GET", http_status_code="200", net_host_name="canary.127.0.0.1.nip.io", net_host_port="3000"}/http_server_duration_count{http_route!="/healthz", http_method="GET", http_status_code="200", net_host_name="canary.127.0.0.1.nip.io", net_host_port="3000"})'
   fetchIntervalSeconds: 5
 ---
 apiVersion: lifecycle.keptn.sh/v1alpha3
