@@ -29,7 +29,7 @@ metadata:
 spec:
   provider:
     name: my-provider
-  query: 'avg(rate(http_server_duration_sum{exported_job="demoapp"}[1m]))'
+  query: 'avg(nginx_ingress_controller_ingress_upstream_latency_seconds_sum{exported_service="canary-demo-preview"}/nginx_ingress_controller_ingress_upstream_latency_seconds_count{exported_service="canary-demo-preview"})'
   fetchIntervalSeconds: 5
 ---
 apiVersion: lifecycle.keptn.sh/v1alpha3
