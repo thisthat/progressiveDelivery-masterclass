@@ -6,14 +6,13 @@ metadata:
 spec:
   replicas: 5
   strategy:
-    canary:
-      canaryService: canary-demo-preview
-      steps:
-      - setWeight: 50
-      - pause: { duration: 1m }
-      - analysis:
-          templates:
-          - templateName: health-analysis
+    blueGreen:
+      autoPromotionEnabled: true
+      activeService: demoapp
+      previewService: canary-demo-preview
+      prePromotionAnalysis:
+        templates:
+        - templateName: health-analysis
   revisionHistoryLimit: 2
   selector:
     matchLabels:
