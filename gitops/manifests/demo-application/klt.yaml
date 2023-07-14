@@ -10,7 +10,7 @@ spec:
     command:
       - 'k6'
       - 'run'
-      - 'https://raw.githubusercontent.com/AloisReitbauer/progressiveDelivery-masterclass/main/gitops/manifests/demo-application/load.js'
+      - 'https://raw.githubusercontent.com/thisthat/progressiveDelivery-masterclass/19d1b7815659bc9030a83993a063e014de73d0e2/gitops/manifests/demo-application/load.js'
 ---
 apiVersion: metrics.keptn.sh/v1alpha3
 kind: KeptnMetricsProvider
