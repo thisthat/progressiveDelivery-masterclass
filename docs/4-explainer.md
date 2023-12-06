@@ -36,8 +36,8 @@ Keptn performs multiple functions:
 
 An application is "managed" by Keptn as such:
 
-1. The namespace of the application is annotated ([see this here](https://github.com/dynatrace-oss/progressiveDelivery-masterclass/blob/main/gitops/manifests/demo-application/namespace.yaml#L7))
-1. 3x annotations (or labels) are added to the application. These are the Kubernetes recommended labels `part-of`, `name` and `version` ([see this here](https://github.com/dynatrace-oss/progressiveDelivery-masterclass/blob/main/gitops/manifests/demo-application/deployment.yaml#L16-L18))
+1. The namespace of the application is annotated ([see this here](https://github.com/thisthat/progressivedelivery-masterclass/blob/main/gitops/manifests/demo-application/namespace.yaml#L7))
+1. 3x annotations (or labels) are added to the application. These are the Kubernetes recommended labels `part-of`, `name` and `version` ([see this here](https://github.com/thisthat/progressivedelivery-masterclass/blob/main/gitops/manifests/demo-application/deployment.yaml#L16-L18))
 
 ![demo app namespace annotated](assets/demo-app-ns-annotated.png)
 ![demo app 3 annotations](assets/demo-app-part-of-version-name-annotations.png)
@@ -50,12 +50,12 @@ Keptn calculates the length of time each "managed" deployment takes. Later you w
 
 Another capability of Keptn are pre and post deployment evaluations and tasks. These also rely on annotations and CRDs. First, let's explore `KeptnTasks`
 
-* Define a `KeptnTask` which is a custom piece of logic that you want to perform during the pod scheduling lifecycle ([see this here](https://github.com/dynatrace-oss/progressiveDelivery-masterclass/blob/main/gitops/manifests/demo-application/keptn.yaml#L1)).
+* Define a `KeptnTask` which is a custom piece of logic that you want to perform during the pod scheduling lifecycle ([see this here](https://github.com/thisthat/progressivedelivery-masterclass/blob/main/gitops/manifests/demo-application/keptn.yaml#L1)).
     This task starts a `k6` container and executes a load test.
 
 ![keptn task](assets/keptn-task.png)
 
-* Add an annotation or label to the deployment which denotes *when* this task should occur, before pod scheduling or after pod scheduling ([see this here](https://github.com/dynatrace-oss/progressiveDelivery-masterclass/blob/main/gitops/manifests/demo-application/deployment.yaml#L20)).
+* Add an annotation or label to the deployment which denotes *when* this task should occur, before pod scheduling or after pod scheduling ([see this here](https://github.com/thisthat/progressivedelivery-masterclass/blob/main/gitops/manifests/demo-application/deployment.yaml#L20)).
     This configuration tells Keptn that a `KeptnTask` called `load-test` should be executed after the deployment has completed.
 
 ![keptn post tasks](assets/keptn-post-tasks.png)
@@ -68,19 +68,19 @@ Another capability of Keptn are pre and post deployment evaluations and tasks. T
 
 As explained previously the Keptn Lifecycle Toolkit also provides a way to run SLO evaluations of metrics before and / or  after deployment.
 
-* Create a `KeptnMetricsProvider` which defines *where* the metric should be retrieved from ([see this here](https://github.com/dynatrace-oss/progressiveDelivery-masterclass/blob/main/gitops/manifests/demo-application/keptn.yaml#L15))
+* Create a `KeptnMetricsProvider` which defines *where* the metric should be retrieved from ([see this here](https://github.com/thisthat/progressivedelivery-masterclass/blob/main/gitops/manifests/demo-application/keptn.yaml#L15))
 
 ![keptn metrics provider](assets/keptn-metrics-provider.png)
 
-* Create a `KeptnMetric` which defines *which* metric should be pulled and how often ([see this here](https://github.com/dynatrace-oss/progressiveDelivery-masterclass/blob/main/gitops/manifests/demo-application/keptn.yaml#L24))
+* Create a `KeptnMetric` which defines *which* metric should be pulled and how often ([see this here](https://github.com/thisthat/progressivedelivery-masterclass/blob/main/gitops/manifests/demo-application/keptn.yaml#L24))
 
 ![keptn metric](assets/keptn-metric.png)
 
-* Create a `KeptnEvaluationDefinition` to define the acceptance criteria. In other words, for a metric, what is the acceptable threshold ([see this here](https://github.com/dynatrace-oss/progressiveDelivery-masterclass/blob/main/gitops/manifests/demo-application/keptn.yaml#L35))
+* Create a `KeptnEvaluationDefinition` to define the acceptance criteria. In other words, for a metric, what is the acceptable threshold ([see this here](https://github.com/thisthat/progressivedelivery-masterclass/blob/main/gitops/manifests/demo-application/keptn.yaml#L35))
 
 ![keptn metric](assets/keptn-evaluation-definition.png)
 
-* Add a label to the deployment to inform Keptn that a given `KeptnEvaluationDefinition` should occur either before or after deployment. In this case, after (post) deployment ([see this here](https://github.com/dynatrace-oss/progressiveDelivery-masterclass/blob/main/gitops/manifests/demo-application/deployment.yaml#L21))
+* Add a label to the deployment to inform Keptn that a given `KeptnEvaluationDefinition` should occur either before or after deployment. In this case, after (post) deployment ([see this here](https://github.com/thisthat/progressivedelivery-masterclass/blob/main/gitops/manifests/demo-application/deployment.yaml#L21))
 
 ![keptn evaluation label](assets/keptn-eval-label.png)
 

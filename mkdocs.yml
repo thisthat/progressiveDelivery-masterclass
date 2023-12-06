@@ -22,8 +22,8 @@ theme:
 
 docs_dir: docs
 # Powers the GitHub links in top bar
-repo_url: https://github.com/dynatrace-oss/progressivedelivery-masterclass
-repo_name: dynatrace-oss/progressivedelivery-masterclass
+repo_url: https://github.com/thisthat/progressivedelivery-masterclass
+repo_name: thisthat/progressivedelivery-masterclass
 
 # Something?
 edit_uri: edit/main/web-docs/
@@ -49,4 +49,4 @@ extra:
   # this var can be removed and
   # we can use {{ site.repo_name }} (see above)
   # instead
-  temp_site_url: "dynatrace-oss/progressivedelivery-masterclass"
+  temp_site_url: "thisthat/progressivedelivery-masterclass"

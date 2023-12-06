@@ -9,7 +9,7 @@
 1. Clone this repository
 
 ```
-git clone https://github.com/dynatrace-oss/progressivedelivery-masterclass
+git clone https://github.com/thisthat/progressivedelivery-masterclass
 cd progressiveDelivery-masterclass
 ```
 
